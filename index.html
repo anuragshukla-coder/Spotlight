@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Users</title>
+    <script>
+      tailwind.config = {
+      theme: {
+        extend: {},
+      },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+body {
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Helvetica Neue", sans-serif;
+   transform: scale(0.8);   /* 80% zoom */
+  transform-origin: top center;  /* shrink from top center */
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blurred-layer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  filter: blur(10px);
+  /* z-index: 1; */
+
+
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat; 
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  z-index: 2;
+}
+
+.content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.content p {
+  font-size: 14px;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.highlight {
+  background-color: yellow;
+  color: black;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+.not-found {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+    <div class="flex flex-col gap-10 items-center relative w-80">
+       <h1 class="text-5xl font-extrabold text-white tracking-wide">
+      <span class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent animate-pulse">
+        Spotlight
+      </span>
+    </h1>
+        <input  class=" inp w-full px-5 py-3 pl-12 rounded-2xl outline-none bg-[#111] text-white placeholder-gray-400 shadow-lg border border-gray-700 focus:border-pink-500 focus:ring-2 focus:ring-pink-500 transition-all duration-300" 
+    type="text" placeholder="🔍 Search..." autocomplete="off">
+        <div class="cards flex gap-10">
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
